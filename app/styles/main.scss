@@ -1,0 +1,144 @@
+@import "bourbon/bourbon";
+@import "grid-settings";
+@import "neat/neat";
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display+SC&subset=latin,latin-ext);
+$background: #1f073e;
+$font: #9b9f9f;
+
+
+body {
+  background-color: $background;
+  color: $font;
+  font-family: 'Playfair Display SC', serif;
+  @include outer-container;
+}
+header{
+  position: relative;
+  @include span-columns(4);
+  h1, h2{
+    @include span-columns(4)
+  }
+  h1{
+    font-size: 52px;
+  }
+  @include media($tablet) {
+    h1{
+      @include span-columns(3);
+    }
+    h2{
+display: block;
+      @include span-columns(5);
+      text-align: right;
+    }
+  }
+
+}
+
+nav{
+  h3 {
+    @include media($tablet) {
+      display: none;
+    }
+  }
+  ul {
+    height: 0px;
+    visibility: hidden;
+    list-style: none;
+    li{
+      display: block;
+    }
+    &.collapsed{
+      visibility: visible;
+      height: auto;
+    }
+  }
+}
+
+section{
+  h1{
+    font-size: 20px;
+  }
+}
+#slider{
+  @include span-columns(4);
+ul {
+  list-style: none;
+  padding-left: 0px;
+}
+  li {
+    display: none;
+    &.active{
+      display: inline-block;
+      width: 33%;
+      img{
+        height: 200px;
+        width: 100%;
+
+      }
+    }
+  }
+}
+#products {
+  div{
+    text-align: center;
+    span{
+      margin-right: 10px;
+      &:before{
+        content: '\2022';
+        margin-right: 10px;
+      }
+      &:first-of-type
+      {
+        margin-right: 0px;
+        &:before{
+          content: '';
+        }
+      }
+    }
+  }
+}
+
+#open_hours{
+margin-top: 40px;
+  span{
+    margin-bottom: 15px;
+    display: block;
+  }
+}
+#adress, #contact {
+  @include span-columns(4);
+  @include media ($tablet){
+    @include span-columns(4);
+  }
+
+}
+
+#adress {
+  position: relative;
+  margin: 10px 10px;
+  padding-bottom: 90%;
+  @include media ($tablet) {
+    padding-bottom: 50%; // (450 ÷ 500 = 0.9 = 90%)
+  }
+  height: 0;
+  overflow: hidden;
+  min-height: 200px;
+}
+#adress iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#contact{
+  .adress, .phone_number, .payment {
+    display: block;
+    margin-top: 10px
+  }
+  img{
+    margin-top: 20px;
+    width: 100%;
+  }
+}
