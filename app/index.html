@@ -22,9 +22,9 @@
     <meta name="msapplication-TileColor" content="#3372DF">
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
+
+    <link rel="canonical" href="http://garnituryolsztyn.pl/">
+
 
     <!-- Page styles -->
     <link rel="stylesheet" href="styles/main.css">
@@ -47,7 +47,7 @@
 
     <main>
       <section id="slider">
-        <p id="prev">poprzednie</p>
+        <div id="prev"></div>
       <ul id="slides">
 
         <li><img src="images/slider/zdjecie_1.jpg"></li>
@@ -61,7 +61,7 @@
         <li><img src="images/slider/zdjecie_9.jpg"></li>
         <li><img src="images/slider/zdjecie_10.jpg"></li>
       </ul>
-        <p id="next">następne</p>
+        <div id="next"></div>
         </section>
       <section id="products">
         <h1>Oferta</h1>
@@ -87,8 +87,8 @@
       </section>
       <section id="open_hours">
         <h1>Godziny otwarcia</h1>
-        <span>Poniedziałek - Piatek: 11:00-19:00</span>
-        <span>Sobota: 10:00-15:00</span>
+        <time itemprop="openingHours" datetime="Mo,Tu,We,Th,Fr 11:00-19:00">Poniedziałek - Piatek: 11:00-19:00</time>
+        <time datetime="Sa 10:00-15:00" >Sobota: 10:00-15:00</time>
         <span>Niedziela: Nieczynne</span>
       </section>
       <section id="adress">
@@ -102,8 +102,9 @@
         <span class="adress" itemprop="addressLocality">Olsztyn</span>
           </div>
         <div class="phone_number">Numer telefonu: <span  itemprop="telephone">664 755 675</span></div>
-        <span class="payment">Przyjmujemy płatności gotówką oraz kartą</span>
-        <img src="images/contact.JPG">
+        <div class="email">Adres e-mail: <a href="mailto:kontakt@garnituryolsztyn.pl" itemprop="email">kontakt@garnituryolsztyn.pl</a></div>
+        <span class="payment" itemprop="paymentAccepted">Przyjmujemy płatności gotówką oraz kartą</span>
+        <img  itemprop="image" src="images/contact.JPG">
       </section>
     </main>
 
@@ -117,7 +118,7 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-XXXXX-X', 'auto');
+      ga('create', 'UA-34721011-1', 'auto');
       ga('send', 'pageview');
     </script>
     <!-- Built with love using Web Starter Kit -->

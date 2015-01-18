@@ -13,6 +13,7 @@ body {
   @include outer-container;
 }
 header{
+  padding-left: 20px;
   position: relative;
   @include span-columns(4);
   h1, h2{
@@ -23,12 +24,10 @@ header{
   }
   @include media($tablet) {
     h1{
-      @include span-columns(3 of 8);
-      height: 100%;
+      @include span-columns(8);
     }
     h2{
-      height: 100%;
-      @include span-columns(5 of 8);
+      @include span-columns(8);
 
 
     }
@@ -46,8 +45,14 @@ nav{
     height: 0px;
     visibility: hidden;
     list-style: none;
+    padding: 0px;
     li{
-      display: block;
+      display: inline-block;
+      margin: 10px 15px;
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
     &.collapsed{
       visibility: visible;
@@ -57,11 +62,13 @@ nav{
 }
 
 section{
+  padding-left: 20px;
   h1{
     font-size: 20px;
   }
 }
 #slider{
+  position: relative;
   display: none;
   @include media($tablet) {
     @include span-columns(8)
@@ -69,17 +76,41 @@ section{
   @include media($desktop) {
     @include span-columns(10)
   }
+  #prev, #next{
+    top: 100px;
+    position: absolute;
+  }
+  #prev{
+    left: 0px;
+    @include triangle(40px 1.5rem, gray, left);
+  }
+  #next{
+    right: 0px;
+
+     @include triangle(40px 1.5rem, gray, right);
+   }
   li {
-    visibility: hidden;
     height: 0;
     width: 0;
-    @include transition(all 1.0s ease-in-out);
+    visibility: hidden;
+    opacity: 0;
+    @include transition(all 1s linear);
+    img {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      @include transition(all 1.0s ease-in-out);
+    }
 
     &.active{
+      margin-right: 1%;
       height: auto;
       visibility: visible;
       display: inline-block;
+      opacity: 1;
+      @include transition(all 1.0s ease-in-out);
       img{
+        opacity: 1;
         height: 200px;
         width: 100%;
 
@@ -87,8 +118,9 @@ section{
     }
   }
 ul {
+  text-align: center;
   list-style: none;
-  padding-left: 0;
+  padding: 0 20px;
   &.item-1{
     li.active {
       width: 100%!important;
@@ -139,7 +171,7 @@ ul {
 
 #open_hours{
 margin-top: 40px;
-  span{
+  time{
     margin-bottom: 15px;
     display: block;
   }
@@ -155,26 +187,33 @@ margin-top: 40px;
 #adress {
   position: relative;
   margin: 10px 10px;
-  padding-bottom: 90%;
-  @include media ($tablet) {
+  padding: 10px 30px 90% 30px;
+  text-align: center;
+  @include media($tablet) {
     padding-bottom: 50%; // (450 ÷ 500 = 0.9 = 90%)
   }
   height: 0;
   overflow: hidden;
   min-height: 200px;
-}
-#adress iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 90%;
+    height: 100%;
+  }
 }
 
 #contact{
-  .adress, .phone_number, .payment {
+  .adress, .phone_number, .payment, .email {
     display: block;
     margin-top: 10px
+  }
+  .phone_number span, .email a{
+    font-size: 20px;
+  }
+  .email a{
+    color: $font;
   }
   img{
     margin-top: 20px;
